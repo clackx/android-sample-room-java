@@ -7,12 +7,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 @Database(entities = {Word.class}, version = 1)
-public abstract class WordRoomDatabase extends RoomDatabase {
-    public abstract WordDao wordDao();
+abstract class WordRoomDatabase extends RoomDatabase {
+    abstract WordDao wordDao();
 
     private static volatile WordRoomDatabase INSTANCE;
 
-    public WordRoomDatabase getDatabase (Context context) {
+    static WordRoomDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
             synchronized (WordRoomDatabase.class) {
                 if (INSTANCE == null) {
